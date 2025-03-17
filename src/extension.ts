@@ -69,8 +69,8 @@ export async function activate(context: vscode.ExtensionContext) {
         const isFontInstalled = (fontName: string): boolean => {
           const variations = fontVariations[fontName] || [fontName];
           return variations.some((variant) =>
-            systemFontsLower.some(
-              (sysFont) => sysFont === variant.toLowerCase().trim()
+            systemFontsLower.some((sysFont) =>
+              sysFont.includes(variant.toLowerCase().trim())
             )
           );
         };
