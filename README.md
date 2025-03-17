@@ -1,6 +1,15 @@
-# FontIt
+<div align="center">
+  <img src="images/icon.png" alt="FontIt Logo" width="128" height="128">
+  
+  # FontIt
+
+[![Version](https://img.shields.io/visual-studio-marketplace/v/najmiter.fontit?color=blue&label=VS%20Code)](https://marketplace.visualstudio.com/items?itemName=najmiter.fontit)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Downloads](https://img.shields.io/visual-studio-marketplace/d/najmiter.fontit)](https://marketplace.visualstudio.com/items?itemName=najmiter.fontit)
 
 A Visual Studio Code extension to change the editor font family easily from the command palette, with automatic font installation support.
+
+</div>
 
 ## Features
 
