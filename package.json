@@ -19,6 +19,7 @@
     "url": "https://github.com/najmiter/fontit.git"
   },
   "icon": "images/icon.png",
+  "pricing": "Free",
   "contributes": {
     "commands": [
       {
