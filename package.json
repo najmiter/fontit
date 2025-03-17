@@ -2,7 +2,7 @@
   "name": "fontit",
   "displayName": "FontIt",
   "description": "Change editor font family easily from the command palette",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -13,6 +13,12 @@
     "onCommand:fontit.changeFont"
   ],
   "main": "./out/extension.js",
+  "publisher": "najmiter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/najmiter/fontit.git"
+  },
+  "icon": "images/icon.png",
   "contributes": {
     "commands": [
       {
