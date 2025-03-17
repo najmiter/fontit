@@ -2,7 +2,7 @@
   "name": "fontit",
   "displayName": "FontIt",
   "description": "Change editor font family easily from the command palette",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -28,6 +28,16 @@
       }
     ]
   },
+  "keywords": [
+    "font",
+    "font-family",
+    "fontit",
+    "font",
+    "editor",
+    "vscode",
+    "extension",
+    "change-font"
+  ],
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
