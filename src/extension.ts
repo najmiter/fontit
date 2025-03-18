@@ -14,16 +14,19 @@ export async function activate(context: vscode.ExtensionContext) {
     'fontit.changeFont',
     async () => {
       try {
+        vscode.window.showInformationMessage('Loading fonts...');
         const systemFonts = await getFonts();
-        const systemFontsLower = systemFonts.map((font) =>
-          font.toLowerCase().trim()
-        );
+        const systemFontsLower = systemFonts
+          .map((font) => font.replace(/"/g, ''))
+          .sort((x) =>
+            Object.keys(fontDescriptions).some((s) => s.includes(x)) ? -1 : 1
+          );
 
         const isFontInstalled = (fontName: string): boolean => {
           const variations = fontVariations[fontName] || [fontName];
           return variations.some((variant) =>
             systemFontsLower.some((sysFont) =>
-              sysFont.includes(variant.toLowerCase().trim())
+              sysFont.match(new RegExp(variant, 'i'))
             )
           );
         };
@@ -31,7 +34,7 @@ export async function activate(context: vscode.ExtensionContext) {
         const availableFonts: vscode.QuickPickItem[] = [];
         const missingFonts: vscode.QuickPickItem[] = [];
 
-        Object.keys(fontDescriptions).forEach((font) => {
+        systemFontsLower.forEach((font) => {
           const quickPickItem = {
             label: font,
             description: fontDescriptions[font],
