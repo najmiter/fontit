@@ -14,13 +14,25 @@ export async function activate(context: vscode.ExtensionContext) {
     'fontit.changeFont',
     async () => {
       try {
-        vscode.window.showInformationMessage('Loading fonts...');
-        const systemFonts = await getFonts();
-        const systemFontsLower = systemFonts
-          .map((font) => font.replace(/"/g, ''))
-          .sort((x) =>
-            Object.keys(fontDescriptions).some((s) => s.includes(x)) ? -1 : 1
-          );
+        let systemFontsLower: string[] = [];
+
+        await vscode.window.withProgress(
+          {
+            location: vscode.ProgressLocation.Notification,
+            title: 'Loading fonts...',
+            cancellable: false,
+          },
+          async () => {
+            const systemFonts = await getFonts();
+            systemFontsLower = systemFonts
+              .map((font) => font.replace(/"/g, ''))
+              .sort((x) =>
+                Object.keys(fontDescriptions).some((s) => s.includes(x))
+                  ? -1
+                  : 1
+              );
+          }
+        );
 
         const isFontInstalled = (fontName: string): boolean => {
           const variations = fontVariations[fontName] || [fontName];
