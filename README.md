@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="images/icon.png" alt="FontIt Logo" width="128" height="128">
+   <img src="images/icon.png" alt="FontIt Logo" width="128" height="128">
   
-  # FontIt
+   <h1>FontIt</h1>
 
 [![Version](https://img.shields.io/visual-studio-marketplace/v/najmiter.fontit?color=blue&label=VS%20Code)](https://marketplace.visualstudio.com/items?itemName=najmiter.fontit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
