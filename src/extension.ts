@@ -92,11 +92,15 @@ export async function activate(context: vscode.ExtensionContext) {
               return;
             }
           } else {
+            const formattedFontName = formatFontNameForSettings(
+              selectedFont.label
+            );
+
             await vscode.workspace
               .getConfiguration()
               .update(
                 'editor.fontFamily',
-                selectedFont.label,
+                formattedFontName,
                 vscode.ConfigurationTarget.Global
               );
             vscode.window.showInformationMessage(
@@ -114,6 +118,13 @@ export async function activate(context: vscode.ExtensionContext) {
 
   disposables.push(disposable);
   context.subscriptions.push(disposable);
+}
+
+function formatFontNameForSettings(fontName: string): string {
+  if (fontName.includes(' ')) {
+    return `'${fontName}'`;
+  }
+  return fontName;
 }
 
 export function deactivate() {
